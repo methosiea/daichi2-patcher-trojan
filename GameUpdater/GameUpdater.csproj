@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{302373F5-DE97-469F-8C79-AEFBE609623A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GameUpdater</RootNamespace>
+    <AssemblyName>GameUpdater</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>GameUpdater.ico</ApplicationIcon>
+    <StartupObject>GameUpdater.App</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\portable-net40+sl4+win8+wp8\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Addon.cs" />
+    <Compile Include="App.cs" />
+    <Compile Include="Controls\ProgressBar.cs" />
+    <Compile Include="Core\CalculatedSegment.cs" />
+    <Compile Include="Core\Common\BoolFormatter.cs" />
+    <Compile Include="Core\Common\ByteFormatter.cs" />
+    <Compile Include="Core\Common\PathHelper.cs" />
+    <Compile Include="Core\Common\TimeSpanFormatter.cs" />
+    <Compile Include="Core\Concurrency\ObjectLocker.cs" />
+    <Compile Include="Core\Concurrency\ReaderWriterObjectLocker.cs" />
+    <Compile Include="Core\Downloader.cs" />
+    <Compile Include="Core\DownloaderEventArgs.cs" />
+    <Compile Include="Core\DownloaderState.cs" />
+    <Compile Include="Core\DownloadManager.cs" />
+    <Compile Include="Core\Extensions\IExtension.cs" />
+    <Compile Include="Core\Extensions\IInitializable.cs" />
+    <Compile Include="Core\Extensions\Protocols\BaseProtocolProvider.cs" />
+    <Compile Include="Core\Extensions\Protocols\FtpProtocolProvider.cs" />
+    <Compile Include="Core\Extensions\Protocols\HttpFtpProtocolExtension.cs" />
+    <Compile Include="Core\Extensions\Protocols\HttpFtpProtocolParametersSettingsProxy.cs" />
+    <Compile Include="Core\Extensions\Protocols\HttpProtocolProvider.cs" />
+    <Compile Include="Core\Extensions\Protocols\IHttpFtpProtocolParameters.cs" />
+    <Compile Include="Core\Extensions\Protocols\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Core\IMirrorSelector.cs" />
+    <Compile Include="Core\Instrumentation\MyStopwatch.cs" />
+    <Compile Include="Core\IProtocolProvider.cs" />
+    <Compile Include="Core\ISegmentCalculator.cs" />
+    <Compile Include="Core\MinSizeSegmentCalculator.cs" />
+    <Compile Include="Core\ProtocolProviderFactory.cs" />
+    <Compile Include="Core\RemoteFileInfo.cs" />
+    <Compile Include="Core\ResolvingProtocolProviderEventArgs.cs" />
+    <Compile Include="Core\ResourceLocation.cs" />
+    <Compile Include="Core\Segment.cs" />
+    <Compile Include="Core\SegmentEventArgs.cs" />
+    <Compile Include="Core\SegmentState.cs" />
+    <Compile Include="Core\SequentialMirrorSelector.cs" />
+    <Compile Include="Core\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="EState.cs" />
+    <Compile Include="ETrayState.cs" />
+    <Compile Include="Localization\Languages\de.cs" />
+    <Compile Include="Localization\Languages\en.cs" />
+    <Compile Include="Localization\Locale.cs" />
+    <Compile Include="MainWindow.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Utilities\CFileChunk.cs" />
+    <Compile Include="Utilities\CPatchFile.cs" />
+    <Compile Include="Utilities\CPatchList.cs" />
+    <Compile Include="Utilities\Crypto.cs" />
+    <Compile Include="Utilities\CServerList.cs" />
+    <Compile Include="Utilities\CUpdaterConfig.cs" />
+    <Compile Include="Utilities\FileSystem.cs" />
+    <Compile Include="Utilities\Interop\WinAPI.cs" />
+    <Compile Include="Utilities\Log.cs" />
+    <Compile Include="Utilities\Serialization.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="g.resources" />
+    <EmbeddedResource Include="Localization\Languages\de.resources" />
+    <EmbeddedResource Include="Localization\Languages\en.resources" />
+    <EmbeddedResource Include="Properties\Resources.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.manifest" />
+    <None Include="Core\Extensions\Protocols\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Core\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
